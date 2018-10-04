@@ -67,6 +67,12 @@ public class Polynomial{
 	this.setCoefficients(coeffs);
     }
 
+    public void scalarmult(double s){
+	for(int i = 0; i <= this.getDegree(); i++){
+	    setCoefficient(i,s*this.getCoefficient(i)); 
+	}
+    }
+
     //static ring operations
     public static Polynomial add(Polynomial p1, Polynomial p2){
 	Polynomial sum = new Polynomial(Math.max(p1.getDegree(),p2.getDegree()));

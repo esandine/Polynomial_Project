@@ -17,5 +17,9 @@ public class Driver{
 	p4.monomialmult(2);
 	System.out.println("Multiplied by x^2:");
 	System.out.println(p4);
+	p4.scalarmult(5);
+	System.out.println("Multiplied by 5:");
+	System.out.println(p4);
+
     }
 }
