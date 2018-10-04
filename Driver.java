@@ -5,5 +5,14 @@ public class Driver{
 	System.out.println(p);
 	Polynomial p2 = new Polynomial(3);
 	System.out.println(p2);
+	Polynomial p3 = new Polynomial(Polynomial.add(p,p2));
+	System.out.println("Their sum:");
+	System.out.println(p3);
+	double[] d2 = {3,4,5};
+	Polynomial p4 = new Polynomial(d2);
+	System.out.println(p4);
+	System.out.println("Their sum:");
+	Polynomial p5 = new Polynomial(Polynomial.add(p3,p4));
+	System.out.println(p5);
     }
 }

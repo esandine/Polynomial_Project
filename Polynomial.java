@@ -1,3 +1,4 @@
+import java.lang.Math;
 public class Polynomial{
     //variables
     private int degree;
@@ -31,6 +32,10 @@ public class Polynomial{
 	setDegree(degree);
 	setCoefficients(new double[degree+1]);
     }
+    public Polynomial(Polynomial p){
+	setDegree(p.getDegree());
+	setCoefficients(p.getCoefficients());
+    }
     //stringification
     public String toString(){
 	String retstr = "";
@@ -43,5 +48,19 @@ public class Polynomial{
 	    }
 	}
 	return retstr;
+    }
+
+    //ring operations
+    public static Polynomial add(Polynomial p1, Polynomial p2){
+	Polynomial sum = new Polynomial(Math.max(p1.getDegree(),p2.getDegree()));
+	for(int i = 0; i<=sum.getDegree();i++){
+	    if(i<=p1.getDegree()){
+		sum.setCoefficient(i,p1.getCoefficient(i));
+	    }
+	    if(i<=p2.getDegree()){
+		sum.setCoefficient(i,sum.getCoefficient(i)+p2.getCoefficient(i));
+	    }
+	}
+	return sum;
     }
 }
