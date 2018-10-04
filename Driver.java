@@ -12,7 +12,10 @@ public class Driver{
 	Polynomial p4 = new Polynomial(d2);
 	System.out.println(p4);
 	System.out.println("Their sum:");
-	Polynomial p5 = new Polynomial(Polynomial.add(p3,p4));
-	System.out.println(p5);
+	p4.add(p3);
+	System.out.println(p4);
+	p4.monomialmult(2);
+	System.out.println("Multiplied by x^2:");
+	System.out.println(p4);
     }
 }

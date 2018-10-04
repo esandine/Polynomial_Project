@@ -50,7 +50,24 @@ public class Polynomial{
 	return retstr;
     }
 
-    //ring operations
+    //add another polynomial
+    public void add(Polynomial p){
+	Polynomial pnew=new Polynomial(add(this,p));
+	this.setCoefficients(pnew.getCoefficients());
+	this.setDegree(pnew.getDegree());
+    }
+
+    public void monomialmult(int deg){
+	this.setDegree(this.getDegree()+deg);
+	double[] coeffs = new double[this.getDegree()+1];
+	double[] oldcoeffs = this.getCoefficients();
+	for(int i = 0; i<oldcoeffs.length;i++){
+	    coeffs[i+deg]=oldcoeffs[i];
+	}
+	this.setCoefficients(coeffs);
+    }
+
+    //static ring operations
     public static Polynomial add(Polynomial p1, Polynomial p2){
 	Polynomial sum = new Polynomial(Math.max(p1.getDegree(),p2.getDegree()));
 	for(int i = 0; i<=sum.getDegree();i++){
