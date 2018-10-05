@@ -11,7 +11,7 @@ public class Polynomial{
 	this.coefficients[degree]=coef;
     }
     public void setCoefficients(double[] coefficients){
-	this.coefficients=coefficients;
+	this.coefficients=coefficients.clone();
 	this.degree=coefficients.length-1;
     }
     //accessors
@@ -83,6 +83,21 @@ public class Polynomial{
 	    if(i<=p2.getDegree()){
 		sum.setCoefficient(i,sum.getCoefficient(i)+p2.getCoefficient(i));
 	    }
+	}
+	return sum;
+    }
+
+    public static Polynomial mult(Polynomial p1, Polynomial p2){
+	Polynomial sum = new Polynomial(p1.getDegree()+p2.getDegree());
+	Polynomial temp;
+	for(int i = 0; i<=p2.getDegree();i++){
+	    temp = new Polynomial(p1);
+	    temp.scalarmult(p2.getCoefficient(i));
+	    temp.monomialmult(i);
+	    sum.add(temp);
+	    //System.out.println(p1);
+	    //System.out.println(temp);
+
 	}
 	return sum;
     }

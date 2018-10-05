@@ -1,25 +1,13 @@
 public class Driver{
     public static void main(String[] args){
-	double[] d = {3,4,5,6};
-	Polynomial p = new Polynomial(d);
-	System.out.println(p);
-	Polynomial p2 = new Polynomial(3);
+	double[] d = {1,1,1,1,1,1};
+	Polynomial p1 = new Polynomial(d);
+	double[] d2 = {-1,1,0,0,0,0,0};
+	Polynomial p2 = new Polynomial(d2);
+	System.out.println(p1);
 	System.out.println(p2);
-	Polynomial p3 = new Polynomial(Polynomial.add(p,p2));
-	System.out.println("Their sum:");
+	Polynomial p3 = new Polynomial(Polynomial.mult(p1,p2));
+	System.out.println("Multiplying the polynomials");
 	System.out.println(p3);
-	double[] d2 = {3,4,5};
-	Polynomial p4 = new Polynomial(d2);
-	System.out.println(p4);
-	System.out.println("Their sum:");
-	p4.add(p3);
-	System.out.println(p4);
-	p4.monomialmult(2);
-	System.out.println("Multiplied by x^2:");
-	System.out.println(p4);
-	p4.scalarmult(5);
-	System.out.println("Multiplied by 5:");
-	System.out.println(p4);
-
     }
 }
